@@ -23,7 +23,10 @@ Template MVC pattern Web Application NodeJS นี้ใช้สำหรับ
 - nestJS `Backend Framework`
 - nodeJS `Runtime Js`
 
+
 ## 🗃️ How to use?
+
+<img src="https://media2.giphy.com/media/62PP2yEIAZF6g/200.gif" width="400" alt="CoolBoy" />
 
 - โคลนโปรเจคนี้มาลงเลยตาม Installation
 - ทำการสร้างไฟล์ .env ขึ้นมาก่อน และ copy text จากไฟล์ .env.example มาลงและ กำหนด env ต่างๆของเรา อาทิ เช่น PORT, DatabaseURL
