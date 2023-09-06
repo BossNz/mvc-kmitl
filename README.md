@@ -1,73 +1,80 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="https://www.kmitl.ac.th" target="blank"><img src="https://emeeting.kmitl.ac.th/pluginfile.php/1/theme_moove/logo/1644762619/fight44342235pix.png" width="400" alt="KMITL LOGO" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 👋 Description
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Template MVC pattern Web Application NodeJS นี้ใช้สำหรับข้อสอบ ExitExam @CSKMTIL ประจำปี66
 
-## Description
+## 🧃 Preface
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<p>เนื่องจากเวลาในการสอบมีแค่ 3ชม. แต่มี 2โจทย์ ดังนั้นผมเลยเขียน Template นี้ขึ้นไว้เตรียมไว้ได้ทำโจทย์ได้เลยไม่ต้องมา setup project ใหม่ ผมเลือกใช้ภาษา Typescript</p>
+<p>MVC ย่อมาจาก model view controller 3 อย่างนี้ โดยที่ </p>
 
-## Installation
+- `Model` เราเลือกใช้ postgresql เนื่องจากเป็น database sql ที่ยอดนิยมอิอิ และในการเขียนเชื่อมต่อ database เราจะใช้ prisma เพราะมันเป็น orm และเป็น Typescript ทำให้เราทำโจทย์ได้ง่ายละรวดเร็วกว่าการมาเขียน query sql
+- `View` เราจะใช้ swagger เพราะ nestjs มัน generate API document ให้เลย เราไม่ต้องเขียนให้เสียเวลา ชิววววว
+- `Controller` ส่วนตัวผมสอบ style การเขียนแบบ Module ดังนั้นผมจึงเลือกที่จะใช้ NestJs เพราะมันเจ๋งแค่นั้นแหละ
+
+## 📦 technology stack
+
+- prisma `Object / Relational Mapping`
+- postgreSQL `Database Sql`
+- swaggerUI `API Documentation UI`
+- nestJS `Backend Framework`
+- nodeJS `Runtime Js`
+
+## 🗃️ How to use?
+
+- โคลนโปรเจคนี้มาลงเลยตาม Installation
+- ทำการสร้างไฟล์ .env ขึ้นมาก่อน และ copy text จากไฟล์ .env.example มาลงและ กำหนด env ต่างๆของเรา อาทิ เช่น PORT, DatabaseURL
+- เราก็ design database ที่อยู่ใน db/schema.prisma
+- แล้วก็หลังจาก design database เสร็จแล้ว เราก็ Database migration เลย
+- เสร็จแล้วถ้าเราต้องการทดสอบ CURD database ของเราก็ใช้คำสั่ง `$ npx prisma studio` จะเป็นเว็บใช้สำหรับเทส
+- เราก็มาเขียน controller ซึ้งผม setup swagger ให้ผมใช้งานแล้ว ดูตัวอย่างใน src/user หลักการใช้งานของ controller, swagger และการกำหนด dto ต่างๆ
+- ส่วนการสร้าง module ใหม่ เราจะใช้คำสั่งหรือเขียนไฟล์แบบ manual เองก็ได้แต่ผมจะใช้วิธี commandline โดย `yarn nest g res --no-spec` แล้วก็ตั้งชื่อ module ก็จะ auto import และสร้างไฟล์ให้เราเลย
+- เราก็ถ้าต้องการเขียนไปและทดสอบไปเราจะใช้ `yarn dev` หรือจะรัน prod เลยก็ใช้ `yarn start:prod`
+
+## 📚 Installation
 
 ```bash
+# clone project
+$ git clone https://github.com/BossNz/mvc-kmitl
+$ cd mvc-kmitl
+
+# install package
 $ yarn install
 ```
 
-## Running the app
+## ⛓️ Database migration
 
 ```bash
 # development
-$ yarn run start
+$ npx prisma migrate dev
 
-# watch mode
-$ yarn run start:dev
+# production
+$ npx prisma migrate deploy
 
-# production mode
-$ yarn run start:prod
 ```
 
-## Test
+
+## 📺 Running the app
 
 ```bash
-# unit tests
-$ yarn run test
+# development
+$ yarn start
 
-# e2e tests
-$ yarn run test:e2e
+# watch mode
+$ yarn dev
 
-# test coverage
-$ yarn run test:cov
+# production mode
+$ yarn start:prod
+
+# prisma studio
+$ npx prisma studio
 ```
 
-## Support
+## 🤝 Reference
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Prisma - [https://www.prisma.io](https://www.prisma.io/)
+- NestJs - [https://nestjs.com](https://nestjs.com/)
+- SwaggerUI - [https://swagger.io](https://www.prisma.io/)
